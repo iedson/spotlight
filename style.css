@@ -1,0 +1,55 @@
+.dg-r{
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: auto;
+    grid-template-areas: ". .";
+};
+
+.df{
+    display:flex;
+}
+
+.ai-c{
+    align-items: center;
+}
+
+.ac-c {
+    align-content: center;
+}
+
+.ac-fs{
+    align-content: flex-start;
+}
+
+.br {
+    border: solid red;
+}
+
+
+.ta-c{
+    text-align: center;
+}
+
+.m-l{
+    margin: 10%;
+}
+
+.fz-j{
+    font-size: 10rem;
+}
+
+.fz-l{
+    font-size: 3rem;
+}
+
+.fz-m{
+    font-size: 2rem;
+}
+
+.fz-s{
+    font-size: 1rem;
+}
+
+.ff-u{
+    font-family: 'Montserrat', sans-serif;
+}
