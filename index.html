@@ -1,78 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="normalize.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <!-- replace font link above when fonts added/removed -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/9963762e2c.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/9963762e2c.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Spotlight - The Streaming Service Search Engine</title>
-</head>
+  </head>
 
-<body class="df df-fdc ai-c m-s">
-
+  <body class="df df-fdc ai-c m-s">
     <header class="df df-fdc fz-l ta-c ai-c br m-l">
-        spotlight
-        <div class="fz-s"> The Streaming Service Search Engine </div>
-        <div class="fz-xs">Powered by <a class="ff-u td-n" href="https://www.utelly.com/">utelly</a><sup>©</sup> <a
-                class="td-n" href="https://rapidapi.com/utelly/api/utelly">API</a></div>
+      spotlight
+      <div class="fz-s">The Streaming Service Search Engine</div>
+      <div class="fz-xs">
+        Powered by <a class="ff-u td-n" href="https://www.utelly.com/">utelly</a
+        ><sup>©</sup>
+        <a class="td-n" href="https://rapidapi.com/utelly/api/utelly">API</a>
+      </div>
     </header>
 
     <div class="df df-fdr w-f m-s">
-        <input class="br w-f" id="searchBox" type="text" placeholder="Search Movies and TV Shows..." />
-        <button class="fas fa-search fs-l"></button>
+      <input
+        class="br w-f"
+        id="searchBox"
+        type="text"
+        placeholder="Search Movies and TV Shows..."
+      />
+      <button class="fas fa-search fs-l"></button>
     </div>
 
     <div class="df df-fdc br ai-c m-s">
-        <!--results wrapper-->
-        <div class="dg-r">
-            <img class="gbx-p bp i-mz" src="51QsQfY2lWL.jpg" />
-            <div class="gbx-c bp m-s">
-                <div> Title </div>
-                <div> Ratings </div>
-                <div> Runtime </div>
-                <!-- <div>Seasons</div> auto generated if TV show-->
-                <div> Top Billed Cast Members </div>
-                <div> Watch On: </div>
-                <div class="df df-fdr ac-fs">
-                    <div class="c-r fas fa-minus-square m-s fz-l"></div>
-                    <div class="c-g fas fa-minus-square m-s fz-l"></div>
-                    <div class="c-b fas fa-minus-square m-s fz-l"></div>
-                    <!--auto generate divs of icons in a flex box row format -->
-                </div>
-            </div>
-            <div class="ai-c bp df df-fdr m-s">
-                <div class="fas fa-film m-s"></div>
-                <div> 11/22/1994 </div>
-            </div>
+      <!--results wrapper-->
+      <div class="dg-r">
+        <img class="gbx-p bp i-mz" src="51QsQfY2lWL.jpg" />
+        <div class="gbx-c bp m-s">
+          <div>Title</div>
+          <div>Ratings</div>
+          <div>Runtime</div>
+          <!-- <div>Seasons</div> auto generated if TV show-->
+          <div>Top Billed Cast Members</div>
+          <div>Watch On:</div>
+          <div class="df df-fdr ac-fs">
+            <div class="c-r fas fa-minus-square m-s fz-l"></div>
+            <div class="c-g fas fa-minus-square m-s fz-l"></div>
+            <div class="c-b fas fa-minus-square m-s fz-l"></div>
+            <!--auto generate divs of icons in a flex box row format -->
+          </div>
         </div>
-        <div class="dg-r">
-                <img class="gbx-p bp i-mz" src="3e1a3118e2abafaa8adb7b2a3710f729.jpg" />
-                <div class="gbx-c bp m-s">
-                    <div> Title </div>
-                    <div> Ratings </div>
-                    <div> Runtime </div>
-                    <!-- <div>Seasons</div> auto generated if TV show-->
-                    <div> Top Billed Cast Members </div>
-                    <div> Watch On: </div>
-                    <div class="df df-fdr ac-fs">
-                        <div class="c-r fas fa-minus-square m-s fz-l"></div>
-                        <!--auto generate divs of icons in a flex box row format -->
-                    </div>
-                </div>
-                <div class="ai-c bp df df-fdr m-s">
-                    <div class="fas fa-tv m-s"></div>
-                    <div> 2005 - 2013</div>
-                </div>
-            </div>
+        <div class="ai-c bp df df-fdr m-s">
+          <div class="fas fa-film m-s"></div>
+          <div>11/22/1994</div>
+        </div>
+      </div>
+      <div class="dg-r">
+        <img class="gbx-p bp i-mz" src="3e1a3118e2abafaa8adb7b2a3710f729.jpg" />
+        <div class="gbx-c bp m-s">
+          <div>Title</div>
+          <div>Ratings</div>
+          <div>Runtime</div>
+          <!-- <div>Seasons</div> auto generated if TV show-->
+          <div>Top Billed Cast Members</div>
+          <div>Watch On:</div>
+          <div class="df df-fdr ac-fs">
+            <div class="c-r fas fa-minus-square m-s fz-l"></div>
+            <!--auto generate divs of icons in a flex box row format -->
+          </div>
+        </div>
+        <div class="ai-c bp df df-fdr m-s">
+          <div class="fas fa-tv m-s"></div>
+          <div>2005 - 2013</div>
+        </div>
+      </div>
     </div>
-
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>
