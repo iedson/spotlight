@@ -1,19 +1,4 @@
-.dg-r{
-    display: grid;
-    grid-template-columns: 1fr 2.5fr;
-    grid-template-rows: auto;
-    grid-template-areas: ". .";
-};
 
-.gbx-p {
-    grid-column: 1/2;
-    grid-row: 1/ span all;
-}
-
-.gbx-c {
-    grid-column: 2/2;
-    grid-row: 1/span all;
-}
 
 .i-mz{
     max-width: 100%;
@@ -110,23 +95,12 @@
     font-size: calc(0.25em + 0.125vh + 0.625vw);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .w-f{
     width: 100%;
+}
+
+.w-75 {
+    width: 75%
 }
 .p-s {
     padding: 3%;
@@ -142,4 +116,16 @@
 
 .c-b {
     color:blue;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-se {
+    justify-content: space-evenly;
+}
+
+.jc-sb {
+    justify-content: space-between;
 }
