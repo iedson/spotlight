@@ -93,6 +93,38 @@
     text-decoration: none;
 }
 
+.br {
+    border-radius: calc(1vh + 1vw);
+}
+    
+
+.bx {
+    min-height: calc(20rem + 30vh); /* guarantees a large relative size, then scales with 30% of the view height */
+}
+
+.fz-h{
+    font-size: calc(1em + 0.5vh + 2.5vw); /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */
+}
+
+.fz-g{
+    font-size: calc(0.25em + 0.125vh + 0.625vw);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .w-f{
     width: 100%;
 }
