@@ -13,6 +13,32 @@ $(document).ready(function() {
     }
   };
 
+
+  $.ajax(settings).done(function(response) {
+    console.log(response);
+  });
+
+  /* Renders 1 card wrapper.  All fields are empty */
+  function renderWrapper(i) {
+    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc">
+      <img
+      id="cardImage${i}"
+        class="bp i-mz"
+        src="https://utellyassets2-8.imgix.net/2/Open/TMDB4_2462/Misc/5u3Y2HpD0wlK697lnpvNn6h5lYK.jpg?fit=crop&auto=compress&crop=faces,top"
+      />
+      <div id="contentWrapper${i}" class="bp m-s">
+        <div id="title${i}">Title</div>
+        <div>Watch On:</div>
+        <div id="iconsWrapper${i}" class="df df-fdr ac-fs">
+          <div class="c-r fas fa-minus-square m-s fz-l"></div>
+          <div class="c-g fas fa-minus-square m-s fz-l"></div>
+          <div class="c-b fas fa-minus-square m-s fz-l"></div>
+        </div>
+      </div>
+    </div>`;
+    $('#pageWrapper').append(cardWrapper);
+  }
+
   function makeCall() {
     $.ajax(settings).done(function(response) {
       console.log(response);
@@ -116,6 +142,7 @@ $(document).ready(function() {
     return showResults;
   }
   createArrayFromCF(createDummyAjaxObject());
+
 
 
 });
