@@ -1,4 +1,21 @@
 $(document).ready(function() {
+  $(window).on('scroll', function () {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > 0) {
+        $('#jumbotron').stop().animate({height: "4rem"},10);
+        $('#logoBig').stop().fadeOut(25);
+
+        $('#jumbotron').html(`<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`)
+        $('#logoSmall').fadeIn(25);
+    }
+    else {
+      $('#jumbotron').stop().animate({height: "18rem"},10);
+      $('#logoSmall').stop().fadeOut(25);
+
+      $('#jumbotron').html(`<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`)
+      $('#logoBig').fadeIn(25);
+    }
+ });
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
   let DEBUG = true;
