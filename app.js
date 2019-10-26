@@ -33,6 +33,7 @@ $(document).ready(function() {
     let showName = singleShowResult.showName;
     // LOCATION ARRAY NOT HANDLED YET. 
     // ^Append divs to iconWrapper for each streaming service (location)
+    let locationArray = singleShowResult.locationArray;
 
     // create a card for the show
     let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc">
@@ -46,11 +47,15 @@ $(document).ready(function() {
         <div>Watch On:</div>
         <div id="iconsWrapper${i}" class="df df-fdr ac-fs">
           <div class="c-r fas fa-minus-square m-s fz-l"></div>
-          <div class="c-g fas fa-minus-square m-s fz-l"></div>
-          <div class="c-b fas fa-minus-square m-s fz-l"></div>
         </div>
       </div>
     </div>`;
+
+    // create and append <a><img></a> for each available streaming site
+    for (var k = 0; k < locationArray.length; k++) {
+      $(`iconsWrapper${i}`).append(createIconWrapper(k, locationArray[k]));
+    }
+    
     // append the new card to the page
     $('#pageWrapper').append(cardWrapper);
   }
