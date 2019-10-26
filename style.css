@@ -7,8 +7,10 @@
 .df-fdc{flex-direction: column;}
 .df-fdr{flex-direction: row;}
 /* images */
-.i-mz{max-width: 75%; max-height: auto;}
-.i-sm{max-width: 18rem; max-height: 18rem;}
+.i-c{max-width: 75%; max-height: auto;}
+.iz-s{max-width:auto; height:4rem;}
+.iz-l{max-width:auto; height:18rem;}
+.bz-j{max-width: 100vw; max-height: 18rem;}
 /* justification */
 .jc-c{justify-content: center;}
 .jc-se{justify-content: space-evenly;}
@@ -16,10 +18,10 @@
 /* margins */
 .m-l{margin: 10%;}
 .m-s{margin: 3%;}
-.mt-s{margin-top:89px;}
+.mt-s{margin-top:250px;}
 /* padding */
 .pd-t{padding:12rem;}
-.p-s{padding: 3%;}
+.p-s{padding: 3%;} 
 /* positioning */
 .ps-t{top:0;}
 .ps-f{position:fixed}
@@ -31,8 +33,7 @@
 .fz-xs{font-size: .5rem;}
 .fz-h{font-size: calc(1em + 0.5vh + 2.5vw);} /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */
 .fz-g{font-size: calc(0.25em + 0.125vh + 0.625vw);}
-.ff-u{font-family: 'Montserrat', sans-serif;}
-.ff-l{font-family: 'Fascinate Inline', cursive;}
+.ff-m{font-family: 'Martel Sans', sans-serif;}
 .ta-c{text-align: center;}
 .td-n{text-decoration: none;}
 /* width */
