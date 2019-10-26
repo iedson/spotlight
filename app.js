@@ -1,25 +1,36 @@
 $(document).ready(function() {
-  $(window).on('scroll', function () {
+  $(window).on('scroll', function() {
     var scrollTop = $(window).scrollTop();
     if (scrollTop > 0) {
-        $('#jumbotron').stop().animate({height: "4rem"},10);
-        $('#logoBig').stop().fadeOut(25);
+      $('#jumbotron')
+        .stop()
+        .animate({ height: '4rem' }, 10);
+      $('#logoBig')
+        .stop()
+        .fadeOut(25);
 
-        $('#jumbotron').html(`<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`)
-        $('#logoSmall').fadeIn(25);
-    }
-    else {
-      $('#jumbotron').stop().animate({height: "18rem"},10);
-      $('#logoSmall').stop().fadeOut(25);
+      $('#jumbotron').html(
+        `<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`
+      );
+      $('#logoSmall').fadeIn(25);
+    } else {
+      $('#jumbotron')
+        .stop()
+        .animate({ height: '18rem' }, 10);
+      $('#logoSmall')
+        .stop()
+        .fadeOut(25);
 
-      $('#jumbotron').html(`<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`)
+      $('#jumbotron').html(
+        `<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`
+      );
       $('#logoBig').fadeIn(25);
     }
- });
+  });
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
   let DEBUG = true;
-  DEBUG = confirm("Debug mode?");
+  DEBUG = confirm('Debug mode?');
   let settings = {
     async: true,
     crossDomain: true,
@@ -35,7 +46,7 @@ $(document).ready(function() {
   /* Renders 1 card wrapper.  All fields are empty */
   function renderWrapper(i, singleShowResult) {
     // var j = 0;
-    
+
     // FOR YOUR VISUALIZATION ENJOYMENT:
     // singleShowResult = {
     // picture: "urlSrcString",
@@ -56,55 +67,48 @@ $(document).ready(function() {
     let locationArray = singleShowResult.locationArray;
 
     // create a card for the show
-    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc">
-      <img
-      id="cardImage${i}"
-        class="bp i-mz"
-        src="${pictureUrl}"
-      />
-      <div id="contentWrapper${i}" class="bp m-s">
-        <div id="title${i}">${showName}</div>
-        <div>Watch On:</div>
-        <div id="iconsWrapper${i}" class="df df-fdr ac-fs">
-        </div>
-      </div>
-    </div>`;
+    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c ">
+    <img id="cardImage${i}" class="bp i-c"
+      src="${pictureUrl}">
+    <div id="contentWrapper${i}" class="bgc-g p-s w-75 m-s">
+      <div class="ff-m fz-m" id="title${i}">${showName}</div>
+      <div class="ff-m fz-m">Watch On:</div>
+      <div id="iconsWrapper${i}" class="bgc-g df df-fdr ac-fs">`;
     // append the new card to the page
     $('#pageWrapper').append(cardWrapper);
 
     // create and append <a><img></a> for each available streaming site
     for (var k = 0; k < locationArray.length; k++) {
-      var junkID = "";
-      
+      var junkID = '';
+
       // welcome to the dumbest way
       if (i === 0) {
-        junkID = "iconsWrapper0";
+        junkID = 'iconsWrapper0';
       }
       if (i === 1) {
-        junkID = "iconsWrapper1";
+        junkID = 'iconsWrapper1';
       }
       if (i === 2) {
-        junkID = "iconsWrapper2";
+        junkID = 'iconsWrapper2';
       }
       if (i === 3) {
-        junkID = "iconsWrapper3";
+        junkID = 'iconsWrapper3';
       }
       if (i === 4) {
-        junkID = "iconsWrapper4";
+        junkID = 'iconsWrapper4';
       }
       if (i === 5) {
-        junkID = "iconsWrapper5";
+        junkID = 'iconsWrapper5';
       }
       if (i === 6) {
-        junkID = "iconsWrapper6";
+        junkID = 'iconsWrapper6';
       }
       if (i === 7) {
-        junkID = "iconsWrapper7";
+        junkID = 'iconsWrapper7';
       }
-      var wrap = $("#" + junkID);
+      var wrap = $('#' + junkID);
       wrap.append(createIconWrapper(k, locationArray[k]));
     }
-    
   }
 
   // loops through each show result and displays appropriately
@@ -131,8 +135,7 @@ $(document).ready(function() {
     if (DEBUG === true) {
       // use fake API call object
       renderResults(createArrayFromCF(createDummyAjaxObject()));
-    }
-    else {
+    } else {
       $.ajax(settings).done(function(response) {
         console.log('response:');
         console.log(response);
