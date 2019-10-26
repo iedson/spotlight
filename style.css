@@ -6,6 +6,8 @@
 .df{display:flex;}
 .df-fdc{flex-direction: column;}
 .df-fdr{flex-direction: row;}
+/* images */
+.i-mz{max-width: 75%; max-height: auto;}
 /* justification */
 .jc-c{justify-content: center;}
 .jc-se{justify-content: space-evenly;}
@@ -13,22 +15,38 @@
 /* margins */
 .m-l{margin: 10%;}
 .m-s{margin: 3%;}
+.mt-s{margin-top:89px;}
+/* padding */
+.pd-t{padding:8rem;}
+.p-s{padding: 3%;}
+/* positioning */
+.ps-t{top:0;}
+.ps-f{position:fixed}
 /* font-sizes, family, text alignment */
 .fz-j{font-size: 10rem;}
 .fz-l{font-size: 3rem;}
 .fz-m{font-size: 2rem;}
 .fz-s{font-size: 1rem;}
 .fz-xs{font-size: .5rem;}
-.fz-h{font-size: calc(1em + 0.5vh + 2.5vw); /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */}
+.fz-h{font-size: calc(1em + 0.5vh + 2.5vw);} /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */
 .fz-g{font-size: calc(0.25em + 0.125vh + 0.625vw);}
 .ff-u{font-family: 'Montserrat', sans-serif;}
+.ff-l{font-family: 'Fascinate Inline', cursive;}
 .ta-c{text-align: center;}
 /* width */
 .w-f{width: 100%;}
 .w-75{width: 75%}
-/* padding */
-.p-s{padding: 3%;}
+.w-fvw{width:100vw;}
+
+
 /* window */
 .bx {min-height: calc(20rem + 30vh); /* guarantees a large relative size, then scales with 30% of the view height */}
 
 /* style */
+.bgc-ws{background-color: whitesmoke;}
+.bgc-cg{background-color:#464646;}
+.bgc-g{background-color: #DFDFDF;}
+.bgc-b{background-color:#1d1d1d;}
+.c-w{color: white;}
+
+

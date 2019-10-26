@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="normalize.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Montserrat&display=swap" rel="stylesheet">
+
   <!-- replace font link above when fonts added/removed -->
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -15,30 +16,29 @@
   <title>Spotlight - The Streaming Service Search Engine</title>
 </head>
 
-<body class="df df-fdc ai-c jc-c m-s">
-  <header class="df df-fdc fz-h ta-c ai-c br m-s">
-    spotlight
-    <div class="fz-s">The Streaming Service Search Engine</div>
-    <div class="fz-xs">
-      Powered by <a class="ff-u td-n" href="https://www.utelly.com/">utelly</a><sup>©</sup>
-      <a class="td-n" href="https://rapidapi.com/utelly/api/utelly">API</a>
-    </div>
-  </header>
 
-  <div class="df df-fdr ai-c jc-c fz-l w-h m-s">
+
+<body class="bgc-cg df df-fdc ai-c jc-c m-s">
+    <header class="bgc-b w-fvw df df-fdc fz-h ta-c ai-c c-w ps-t ps-f">
+        <div class="fz-l ff-l">
+            <img src="./Assets/spotlight-logo.png" alt="Spotlight Logo">
+        </div>
+    </header>
+    
+  <div class="df df-fdr ai-c jc-c fz-l mt-s pd-t w-h m-s">
     <input class="br w-75" id="searchBox" type="text" placeholder="Search title..." />
     <button class="fas fa-search fs-l" id="searchSubmit"></button>
   </div>
 
   <div id="pageWrapper" class="br ai-c m-s">
     <!--results wrapper-->
-    <div id="cardWrapper" class="df df-fdc">
+    <div id="cardWrapper" class="df df-fdc ai-c jc-c ">
       <img id="cardImage" class="bp i-mz"
         src="https://utellyassets2-8.imgix.net/2/Open/TMDB4_2462/Misc/5u3Y2HpD0wlK697lnpvNn6h5lYK.jpg?fit=crop&auto=compress&crop=faces,top" />
-      <div id="contentWrapper" class="bp m-s">
-        <div id="title"> Title </div>
+      <div id="contentWrapper" class="bp w-75 m-s">
+        <div id="title"> Title: </div>
         <div>Watch On:</div>
-        <div id="iconsWrapper" class="df df-fdr ac-fs">
+        <div id="iconsWrapper" class="bgc-g df df-fdr ac-fs">
           <div class="c-r fas fa-minus-square m-s fz-l"></div>
           <div class="c-g fas fa-minus-square m-s fz-l"></div>
           <div class="c-b fas fa-minus-square m-s fz-l"></div>
@@ -47,6 +47,12 @@
       </div>
     </div>
   </div>
+  <footer class="bgc-dm w-fvw df df-fdc fz-h ta-c ai-c c-w">
+    <div class="fz-m">
+        Powered by <a class="ff-u td-n" href="https://www.utelly.com/">utelly</a><sup>©</sup>
+        <a class="td-n" href="https://rapidapi.com/utelly/api/utelly">API</a>
+      </div>
+  </footer>
   <script src="app.js"></script>
 </body>
 
