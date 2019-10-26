@@ -1,6 +1,8 @@
 $(document).ready(function() {
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
+  let DEBUG = true;
+  DEBUG = confirm("Debug mode?");
   let settings = {
     async: true,
     crossDomain: true,
@@ -81,11 +83,17 @@ $(document).ready(function() {
     // update the API call's url with the user's search info
     settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=us`;
     // make the API call using the settings which now include the user's search
-    $.ajax(settings).done(function(response) {
-      console.log('response:');
-      console.log(response);
-      renderResults(createArrayFromCF(response));
-    });
+    if (DEBUG === true) {
+      // use fake API call object
+      renderResults(createArrayFromCF(createDummyAjaxObject()));
+    }
+    else {
+      $.ajax(settings).done(function(response) {
+        console.log('response:');
+        console.log(response);
+        renderResults(createArrayFromCF(response));
+      });
+    }
   }
 
   // returns an Object containing an array of results
@@ -123,16 +131,16 @@ $(document).ready(function() {
             {
               display_name: 'Notflix',
               name: 'NotflixUS',
-              url: 'https://www.Notflix.com/title/80113701',
+              url: 'https://www.netflix.com/title/80113701',
               id: '58c141a37588d57a9522dd54',
               icon:
-                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NotflixUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
+                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/netflixUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
             },
             {
               display_name: 'Amazon Poop',
               name: 'AmazonUS',
               url:
-                'http://smile.amazon.com/gp/product/B0773R8MCP?tag=utellycom00-21',
+                'http://www.amazon.com/gp/product/B0773R8MCP?tag=utellycom00-21',
               id: '58c141a37588d57a9722dd54',
               icon:
                 'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
@@ -197,19 +205,16 @@ $(document).ready(function() {
     $('#pageWrapper').empty();
   }
 
-  // auto generate dummy object
-  // createArrayFromCF(createDummyAjaxObject());
-
   /* Creates one site Icon w/ link wrapper */
   function createIconWrapper(i, locationObject) {
     let tempIcon = locationObject.siteIcon;
     let tempName = locationObject.siteName;
     let tempURL = locationObject.url;
-
     let wrapper = `<a href="${tempURL}">
-      <img src="${tempIcon}" alt="${tempName}"/>
+      <img src="${tempIcon}" alt="${tempName}">
     </a>`;
-
+    console.log(`wrapper${i}:`)
+    console.log(wrapper);
     return wrapper;
   }
 
