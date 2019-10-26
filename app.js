@@ -13,21 +13,36 @@ $(document).ready(function() {
     }
   };
 
-
-  $.ajax(settings).done(function(response) {
-    console.log(response);
-  });
-
   /* Renders 1 card wrapper.  All fields are empty */
-  function renderWrapper(i) {
+  function renderWrapper(i, singleShowResult) {
+
+    // FOR YOUR VISUALIZATION ENJOYMENT:
+    // singleShowResult = {
+      // picture: "urlSrcString",
+      // showName: "string",
+      // locationArray: []
+    // }
+      // locationArray = [{}]
+      // locationArray[0] = {
+        // siteName: "string",
+        // url: "url string to take you to the show on the streaming site",
+        // siteIcon: "urlSrcString"
+      // }
+
+    let pictureUrl = singleShowResult.picture;
+    let showName = singleShowResult.showName;
+    // LOCATION ARRAY NOT HANDLED YET. 
+    // ^Append divs to iconWrapper for each streaming service (location)
+
+    // create a card for the show
     let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc">
       <img
       id="cardImage${i}"
         class="bp i-mz"
-        src="https://utellyassets2-8.imgix.net/2/Open/TMDB4_2462/Misc/5u3Y2HpD0wlK697lnpvNn6h5lYK.jpg?fit=crop&auto=compress&crop=faces,top"
+        src="${pictureUrl}"
       />
       <div id="contentWrapper${i}" class="bp m-s">
-        <div id="title${i}">Title</div>
+        <div id="title${i}">${showName}</div>
         <div>Watch On:</div>
         <div id="iconsWrapper${i}" class="df df-fdr ac-fs">
           <div class="c-r fas fa-minus-square m-s fz-l"></div>
@@ -36,12 +51,36 @@ $(document).ready(function() {
         </div>
       </div>
     </div>`;
+    // append the new card to the page
     $('#pageWrapper').append(cardWrapper);
   }
 
-  function makeCall() {
+  // loops through each show result and displays appropriately
+  function renderResults(showResultArray) {
+    // for loop
+    for (var i = 0; i < showResultArray.length; i++) {
+      // renderWrapper, pass in i. (also pass in object in result array location i?)
+      renderWrapper(i, showResultArray[i]);
+    }
+  }
+
+  // makes the API call to Utelly! woo!
+  function makeCall(userInput) {
+    if (userInput === "") {
+      return; // Don't search on empty
+    }
+    // assign user's search input to a variable
+    userLookup = userInput;
+    // clear the search box
+    $('#searchBox').val("");
+    clearResults();
+    // update the API call's url with the user's search info
+    settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=us`;
+    // make the API call using the settings which now include the user's search
     $.ajax(settings).done(function(response) {
+      console.log("response:");
       console.log(response);
+      renderResults(createArrayFromCF(response));
     });
   }
 
@@ -105,6 +144,7 @@ $(document).ready(function() {
   // returns an array containing objects representing show results
   function createArrayFromCF(ajaxResponse) {
     // print full object
+    console.log("ajaxResponse:")
     console.log(ajaxResponse)
     var showResults = []; // each show, ie: The Office, The Office UK, The Office Adventures
     var temp1 = ajaxResponse.results;
@@ -141,8 +181,27 @@ $(document).ready(function() {
     console.log(showResults)
     return showResults;
   }
-  createArrayFromCF(createDummyAjaxObject());
+  // remove old results
+  function clearResults() {
+    $('#pageWrapper').empty();
+  }
 
+  // auto generate dummy object
+  // createArrayFromCF(createDummyAjaxObject());
+
+  // Search Trigger
+  $('#searchBox').keypress(function (e) {
+    if (e.which == 13) {//Enter key pressed
+      $('#searchSubmit').click();//Trigger search button click event
+    }
+  });
+
+  // make a call when the user searches
+  $("#searchSubmit").on("click", function () {
+    // save user's search value
+    let userSearch = $('#searchBox').val();
+    makeCall(userSearch);
+  });
 
 
 });
