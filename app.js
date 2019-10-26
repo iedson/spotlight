@@ -17,6 +17,8 @@ $(document).ready(function() {
 
   /* Renders 1 card wrapper.  All fields are empty */
   function renderWrapper(i, singleShowResult) {
+    // var j = 0;
+    
     // FOR YOUR VISUALIZATION ENJOYMENT:
     // singleShowResult = {
     // picture: "urlSrcString",
@@ -47,25 +49,51 @@ $(document).ready(function() {
         <div id="title${i}">${showName}</div>
         <div>Watch On:</div>
         <div id="iconsWrapper${i}" class="df df-fdr ac-fs">
-          <div class="c-r fas fa-minus-square m-s fz-l"></div>
         </div>
       </div>
     </div>`;
+    // append the new card to the page
+    $('#pageWrapper').append(cardWrapper);
 
     // create and append <a><img></a> for each available streaming site
     for (var k = 0; k < locationArray.length; k++) {
-      $(`iconsWrapper${i}`).append(createIconWrapper(k, locationArray[k]));
+      var junkID = "";
+      
+      // welcome to the dumbest way
+      if (i === 0) {
+        junkID = "iconsWrapper0";
+      }
+      if (i === 1) {
+        junkID = "iconsWrapper1";
+      }
+      if (i === 2) {
+        junkID = "iconsWrapper2";
+      }
+      if (i === 3) {
+        junkID = "iconsWrapper3";
+      }
+      if (i === 4) {
+        junkID = "iconsWrapper4";
+      }
+      if (i === 5) {
+        junkID = "iconsWrapper5";
+      }
+      if (i === 6) {
+        junkID = "iconsWrapper6";
+      }
+      if (i === 7) {
+        junkID = "iconsWrapper7";
+      }
+      var wrap = $("#" + junkID);
+      wrap.append(createIconWrapper(k, locationArray[k]));
     }
     
-    // append the new card to the page
-    $('#pageWrapper').append(cardWrapper);
   }
 
   // loops through each show result and displays appropriately
   function renderResults(showResultArray) {
     // for loop
     for (var i = 0; i < showResultArray.length; i++) {
-      // renderWrapper, pass in i. (also pass in object in result array location i?)
       renderWrapper(i, showResultArray[i]);
     }
   }
@@ -108,7 +136,7 @@ $(document).ready(function() {
               url: 'https://www.netflix.com/title/80113701',
               id: '58c141a37588d57a9522dd54',
               icon:
-                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NetflixUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
+                'https://assets.pcmag.com/media/images/434952-netflix-logo.png?width=333&height=245'
             },
             {
               display_name: 'Amazon Prime',
@@ -117,7 +145,7 @@ $(document).ready(function() {
                 'http://www.amazon.com/gp/product/B0773R8MCP?tag=utellycom00-21',
               id: '58c141a37588d57a9722dd54',
               icon:
-                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
+                'https://images-na.ssl-images-amazon.com/images/G/01/rainier/available_at_amazon_1200x600_Nvz5h2M.png'
             }
           ],
           picture:
@@ -134,7 +162,7 @@ $(document).ready(function() {
               url: 'https://www.netflix.com/title/80113701',
               id: '58c141a37588d57a9522dd54',
               icon:
-                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/netflixUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
+                'https://assets.pcmag.com/media/images/434952-netflix-logo.png?width=333&height=245'
             },
             {
               display_name: 'Amazon Poop',
@@ -143,7 +171,7 @@ $(document).ready(function() {
                 'http://www.amazon.com/gp/product/B0773R8MCP?tag=utellycom00-21',
               id: '58c141a37588d57a9722dd54',
               icon:
-                'https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonUS.png?w=92&auto=compress&app_version=0f692b6a-217b-4753-a78b-4351ba443607_2019-10-24'
+                'https://images-na.ssl-images-amazon.com/images/G/01/rainier/available_at_amazon_1200x600_Nvz5h2M.png'
             }
           ],
           picture:
@@ -213,8 +241,6 @@ $(document).ready(function() {
     let wrapper = `<a href="${tempURL}">
       <img src="${tempIcon}" alt="${tempName}">
     </a>`;
-    console.log(`wrapper${i}:`)
-    console.log(wrapper);
     return wrapper;
   }
 
