@@ -2,22 +2,28 @@
 .ai-c{align-items:center;}
 .ac-c{align-content:center;}
 .ac-fs{align-content: flex-start;}
+/* borders */
+.br-t{border-top-left-radius: 1rem; border-top-right-radius: 1rem;}
+.br-b{border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem;}
 /* display flex, columns and rows. */
 .df{display:flex;}
-.df-fdc{flex-direction: column;}
-.df-fdr{flex-direction: row;}
+.df-fdc{flex-direction:column;}
+.df-fdr{flex-direction:row; flex-wrap:wrap; }
 /* images */
 .i-c{max-width: 75%; max-height: auto;}
 .iz-s{max-width:auto; height:4rem;}
 .iz-l{max-width:auto; height:18rem;}
+.iz-i{max-width: 9rem; max-height: 6rem;}
 .bz-j{max-width: 100vw; max-height: 18rem;}
 /* justification */
-.jc-c{justify-content: center;}
-.jc-se{justify-content: space-evenly;}
-.jc-sb{justify-content: space-between;}
+.jc-c{justify-content:center;}
+.jc-se{justify-content:space-evenly;}
+.jc-sb{justify-content:space-between;}
 /* margins */
 .m-l{margin: 10%;}
+.m-m{margin: 6%;} 
 .m-s{margin: 3%;}
+.mb-s{margin-bottom:2rem}
 .mt-s{margin-top:250px;}
 /* padding */
 .pd-t{padding:12rem;}
@@ -25,7 +31,7 @@
 /* positioning */
 .ps-t{top:0;}
 .ps-f{position:fixed}
-/* font-sizes, family, text alignment */
+/* font and text properties */
 .fz-j{font-size: 10rem;}
 .fz-l{font-size: 3rem;}
 .fz-m{font-size: 2rem;}
@@ -33,17 +39,19 @@
 .fz-xs{font-size: .5rem;}
 .fz-h{font-size: calc(1em + 0.5vh + 2.5vw);} /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */
 .fz-g{font-size: calc(0.25em + 0.125vh + 0.625vw);}
-.ff-m{font-family: 'Martel Sans', sans-serif;}
-.ta-c{text-align: center;}
-.td-n{text-decoration: none;}
-/* width */
-.w-f{width: 100%;}
-.w-75{width: 75%}
+.ff-m{font-family:'Martel Sans', sans-serif;}
+.fs-i{font-style:italic}
+.ta-c{text-align:center;}
+.td-n{text-decoration:none;}
+/* height and width */
+.h-f{height:100%;}
+.w-f{width:100%;}
+.w-75{width:75%}
 .w-fvw{width:100vw;}
 
 
 /* window */
-.bx {min-height: calc(20rem + 30vh); /* guarantees a large relative size, then scales with 30% of the view height */}
+.bx {min-height: calc(20rem + 30vh); min-width: 100vw; /* guarantees a large relative size, then scales with 30% of the view height */}
 
 /* style */
 .bgc-ws{background-color: whitesmoke;}
@@ -51,6 +59,6 @@
 .bgc-g{background-color: #DFDFDF;}
 .bgc-b{background-color:black;}
 .c-w{color: white;}
+.c-cg{color:#464646;}
 
-
-
+.s{box-shadow: 2.5px 2.5px 5px #464646;-webkit-box-shadow: 2.5px 2.5px 5px #464646;-moz-box-shadow: 2.5px 2.5px 5px #464646;}

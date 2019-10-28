@@ -67,13 +67,13 @@ $(document).ready(function() {
     let locationArray = singleShowResult.locationArray;
 
     // create a card for the show
-    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c ">
-    <img id="cardImage${i}" class="bp i-c"
+    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c">
+    <img id="cardImage${i}" class="br-t i-c"
       src="${pictureUrl}">
-    <div id="contentWrapper${i}" class="bgc-g p-s w-75 m-s">
-      <div class="ff-m fz-m" id="title${i}">${showName}</div>
-      <div class="ff-m fz-m">Watch On:</div>
-      <div id="iconsWrapper${i}" class="bgc-g df df-fdr ac-fs">`;
+    <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b mb-s">
+      <div class="ff-m fz-l" id="title${i}">${showName}</div>
+      <div class="ff-m fs-i c-cg fz-m">Watch On:</div>
+      <div id="iconsWrapper${i}" class="bgc-g df df-fdr ai-c ac-fs">`;
     // append the new card to the page
     $('#pageWrapper').append(cardWrapper);
 
@@ -258,8 +258,8 @@ $(document).ready(function() {
     let tempIcon = locationObject.siteIcon;
     let tempName = locationObject.siteName;
     let tempURL = locationObject.url;
-    let wrapper = `<a href="${tempURL}">
-      <img src="${tempIcon}" alt="${tempName}">
+    let wrapper = `<a href="${tempURL}" class="iz-i m-s s">
+      <img src="${tempIcon}" alt="${tempName}" class=" h-f w-f">
     </a>`;
     return wrapper;
   }
