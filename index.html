@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/9963762e2c.js" crossorigin="anonymous"></script>
-
+  <script src="app.js"></script>
   <title>Spotlight - The Streaming Service Search Engine</title>
 </head>
 
@@ -23,35 +23,25 @@
     <img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">
   </header>
     
-  <div class="df df-fdr ai-c jc-c fz-l mt-s p-s w-h m-s">
+  <div id="searchWrapper" class="fd-i df df-fdr ai-c jc-c fz-l mt-m p-s w-h m-s">
     <input class="bgc-g ff-m w-75" id="searchBox" type="text" placeholder="Search title..." />
     <button class="fas fa-search fa4x" id="searchSubmit"></button>
   </div>
 
-  <div id="pageWrapper" class="ai-c m-s">
-    <!--results wrapper-->
-    <div id="cardWrapper" class="df df-fdc ai-c jc-c ">
-      <img id="cardImage" class="bp i-c"
-        src="https://utellyassets2-8.imgix.net/2/Open/TMDB4_2462/Misc/5u3Y2HpD0wlK697lnpvNn6h5lYK.jpg?fit=crop&auto=compress&crop=faces,top" />
-      <div id="contentWrapper" class="bgc-g p-s w-75 m-s">
-        <div class="ff-m fz-m" id="title"> Title: </div>
-        <div class="ff-m fz-m">Watch On:</div>
-        <div id="iconsWrapper" class="bgc-g df df-fdr ac-fs">
-          <div class="c-r fas fa-minus-square m-s fz-l"></div>
-          <div class="c-g fas fa-minus-square m-s fz-l"></div>
-          <div class="c-b fas fa-minus-square m-s fz-l"></div>
-          <!--auto generate divs of icons in a flex box row format -->
-        </div>
-      </div>
+  <div class="fd-o" id="greetingWrapper">
+      <div>Welcome!</div>
+      <div>This SPOTLGHT - an app built for people who just want to find out where they can watch their favorite shows, all in one location.</div>
+      <div>Simply Search for your favorite shows and click on the Streaming Service's Logo to go watch it!</div>
     </div>
-  </div>
-  <footer class="bgc-dm w-fvw df df-fdc fz-h ta-c ai-c c-w">
+
+  <div id="pageWrapper" class="ai-c fd-i mt-s m-s"></div>
+
+  <footer class="bgc-dm w-fvw df df-fdr fz-h ta-c jc-fs c-w">
     <div class="fz-m">
-        Powered by <a class="ff-m td-n" href="https://www.utelly.com/">utelly</a><sup>©</sup>
+        Powered by <a class="ff-m c-u c-u-hv td-n" href="https://www.utelly.com/">Utelly</a><sup>©</sup>
         <a class="c-w td-n" href="https://rapidapi.com/utelly/api/utelly">API</a>
       </div>
   </footer>
-  <script src="app.js"></script>
 </body>
 
 </html>
