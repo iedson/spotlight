@@ -6,7 +6,7 @@ $(document).ready(function() {
   let settings = {
     async: true,
     crossDomain: true,
-    url: `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=us`,
+    url: `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}`,
     method: 'GET',
     headers: {
       'x-rapidapi-host':
@@ -109,7 +109,7 @@ $(document).ready(function() {
     $('#searchBox').val('');
     clearResults();
     // update the API call's url with the user's search info
-    settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=us`;
+    settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}`;
     // make the API call using the settings which now include the user's search
     if (DEBUG === true) {
       // use fake API call object
