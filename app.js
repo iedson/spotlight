@@ -235,7 +235,12 @@ $(document).ready(function() {
     for (var i = 0; i < temp1.length; i++) {
       var showObject = {}; // individual show
       // save the show's picture
-      showObject['picture'] = temp1[i].picture;
+      if (temp1[i].picture === "" ||temp1[i].picture === null) {
+        showObject['picture'] = "./Assets/imageUnavailable.jpg";
+      }
+      else {
+        showObject['picture'] = temp1[i].picture;
+      }
       // save the show's name
       showObject['showName'] = temp1[i].name;
       // for each location[] in this result
