@@ -36,6 +36,7 @@ $(document).ready(function() {
   
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
+  let toggleLookup = true; // true is US, off is UK?
   let DEBUG = true;
   DEBUG = confirm('Debug mode?');
   let settings = {
@@ -130,17 +131,26 @@ $(document).ready(function() {
   }
 
   // makes the API call to Utelly! woo!
-  function makeCall(userInput) {
+  function makeCall(userInput, toggleValue) {
     if (userInput === '') {
       return; // Don't search on empty
     }
     // assign user's search input to a variable
     userLookup = userInput;
+    if (toggleValue === true) {
+      // alert("true");
+      toggleLookup = "uk";
+    }
+    if (toggleValue === false) {
+      // alert("false");
+      toggleLookup = "us";
+    }
+
     // clear the search box
     $('#searchBox').val('');
     clearResults();
     // update the API call's url with the user's search info
-    settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=us`;
+    settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=${toggleLookup}`;
     // make the API call using the settings which now include the user's search
     if (DEBUG === true) {
       // use fake API call object
@@ -229,7 +239,12 @@ $(document).ready(function() {
     for (var i = 0; i < temp1.length; i++) {
       var showObject = {}; // individual show
       // save the show's picture
-      showObject['picture'] = temp1[i].picture;
+      if (temp1[i].picture === "" ||temp1[i].picture === null) {
+        showObject['picture'] = "./Assets/imageUnavailable.jpg";
+      }
+      else {
+        showObject['picture'] = temp1[i].picture;
+      }
       // save the show's name
       showObject['showName'] = temp1[i].name;
       // for each location[] in this result
@@ -286,6 +301,24 @@ $(document).ready(function() {
   $('#searchSubmit').on('click', function() {
     // save user's search value
     let userSearch = $('#searchBox').val();
-    makeCall(userSearch);
+    let toggleSetting = $('#toggle').val();
+    // DEBUGGGGG toggle setting
+    toggleSetting = true; // DEBUG
+    makeCall(userSearch, toggleSetting);
   });
+
+  //change country toggle data attribule
+  $('#countryToggle').on('click',function(event){
+    let test = $('#countryToggle').attr('data-country');
+    event.stopImmediatePropagation();
+    if ($('#countryToggle').attr('data-country')==='us'){
+      $('#countryToggle').attr('data-country', 'uk');
+    }else{
+      $('#countryToggle').attr('data-country', 'us');
+    }
+    console.log(test);
+
+
+    
+  })
 });
