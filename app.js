@@ -134,11 +134,11 @@ $(document).ready(function() {
     // assign user's search input to a variable
     userLookup = userInput;
     if (toggleValue === true) {
-      alert("true");
+      // alert("true");
       toggleLookup = "uk";
     }
     if (toggleValue === false) {
-      alert("false");
+      // alert("false");
       toggleLookup = "us";
     }
 
@@ -293,7 +293,8 @@ $(document).ready(function() {
     // save user's search value
     let userSearch = $('#searchBox').val();
     let toggleSetting = $('#toggle').val();
-    toggleSetting = false; // DEBUG
+    // DEBUGGGGG toggle setting
+    toggleSetting = true; // DEBUG
     makeCall(userSearch, toggleSetting);
   });
 });
