@@ -1,36 +1,39 @@
 $(document).ready(function() {
 
+  // animates the search wrapper including the toggle, bar, and button into DOM via a fade-in-from bottom type animation.
   $('#searchWrapper').animate({'opacity': 1,'margin-top': '18rem'}, 500);
+  
+/*Lines 23-38: function for animating the header.
 
-  $(window).on('scroll', function() {
+As an else condition - upon scrolling form the top, the header bar will first animate to a height of 4rem.
+Secondly, it will hide the large logo image, change some attrubutes, and set a new src, all while hidden.
+Lastly, it reshows itself inside the header as the new image and smaller. 
+
+The header rebuilds itself to inital state when the user returns to the top of the page, the "if" part of the function.
+I chose <=0 because scrollTop documentation indicates there are hidden (read: negative) pixels to help determine if the bar is indeed at the top. 
+It also prevented the shrinking header animation from not firing upon intial scroll.
+
+// **.stop(true,true).animate() will mean that you’re telling jQuery to:
+// 1. Clear any queued animation. Let the current animation be the last of the stack.
+// 2. Drop whatever you are doing, and transition immediately to the end state.
+
+It is not always needed.
+*/
+
+  $(window).on('scroll', function() { 
+    $('#logo').css('opacity', 'hide');
     var scrollTop = $(window).scrollTop();
-    if (scrollTop > 0) {
-      // var $imgURL = $('#logoBig').attr("href");
-    $('#logoBig')
-        .fadeOut(400, function() {
-            $('#logoBig').attr('src',"./Assets/logo-icon.jpg").attr('class', 'iz-s')}).stop().fadeIn(400);
 
-
-      // $('#logoBig').fadeOut(2500);
-
-      $('#jumbotron').stop().animate({height:'4rem'}, 1000);
-
-    
-      // $('#jumbotron').html(`<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`);
-
-
-
-      $('#logoSmall').fadeIn(2500);
-
-    } else if (scrollTop == 0) {
-
-      $('#logoSmall').fadeOut(2500);
-
-      $('#jumbotron').html(`<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`);
-      
-      $('#jumbotron').stop().animate({height:'18rem'}, 1000);
-
-      $('#logoBig').fadeIn(2500);
+    if (scrollTop <= 0) {
+      $('#jumbotron').stop().animate({height:'18rem'},500);
+      $('#logo').stop(true,true).animate({opacity:'hide'},1000);
+      $('#logo').attr('src',"./Assets/updated-logo.jpg").attr('class','iz-l');
+      $('#logo').stop(true,true).animate({opacity:'show'},1000);
+    } else {
+      $('#jumbotron').stop().animate({ height: '4rem'},500);
+      $('#logo').stop(true,true).animate({opacity:'hide'},1000);
+      $('#logo').attr('src',"./Assets/logo-icon.jpg").attr('class','iz-s');
+      $('#logo').stop(true,true).animate({opacity:'show'},1000);
     }
   });
   
@@ -74,15 +77,14 @@ $(document).ready(function() {
     // ^Append divs to iconWrapper for each streaming service (location)
     let locationArray = singleShowResult.locationArray;
 
-    // create a card for the show
-    let cardWrapper = `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c">
-    <img id="cardImage${i}" class="br-t i-c"
-      src="${pictureUrl}">
-    <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b mb-s">
-      <div class="ff-m fz-l" id="title${i}">${showName}</div>
-      <div class="ff-m fs-i c-cg fz-m">Watch On:</div>
+    // Writes a div with children full of data to the DOM as a child of $('#pageWrapper') for each result
+    let cardWrapper = 
+    `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c">
+      <img id="cardImage${i}" class="br-t i-c" src="${pictureUrl}">
+      <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b mb-s">
+       <div class="ff-m fz-l" id="title${i}">${showName}</div>
+        <div class="ff-m fs-i c-cg fz-m">Watch On:</div>
       <div id="iconsWrapper${i}" class="bgc-g df df-fdr ai-c ji-c ac-fs">`;
-    // append the new card to the page
     $('#pageWrapper').append(cardWrapper);
 
     // create and append <a><img></a> for each available streaming site
@@ -289,11 +291,12 @@ $(document).ready(function() {
     return wrapper;
   }
 
-  // Search Trigger
+  // Lines 297-325: on-clicks and events.
+
+  //Triggers search if enter key is pressed while focused on search bar. no button click needed.
   $('#searchBox').keypress(function(e) {
     if (e.which == 13) {
-      //Enter key pressed
-      $('#searchSubmit').click(); //Trigger search button click event
+      $('#searchSubmit').click(); 
     }
   });
 
@@ -317,8 +320,5 @@ $(document).ready(function() {
       $('#countryToggle').attr('data-country', 'us');
     }
     console.log(test);
-
-
-    
   })
 });
