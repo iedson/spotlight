@@ -302,4 +302,19 @@ $(document).ready(function() {
     toggleSetting = true; // DEBUG
     makeCall(userSearch, toggleSetting);
   });
+
+  //change country toggle data attribule
+  $('#countryToggle').on('click',function(event){
+    let test = $('#countryToggle').attr('data-country');
+    event.stopImmediatePropagation();
+    if ($('#countryToggle').attr('data-country')==='us'){
+      $('#countryToggle').attr('data-country', 'uk');
+    }else{
+      $('#countryToggle').attr('data-country', 'us');
+    }
+    console.log(test);
+
+
+    
+  })
 });
