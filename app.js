@@ -1,35 +1,39 @@
 $(document).ready(function() {
 
-    $('#searchWrapper').animate({'opacity': 1,'margin-top': '15rem'}, 500);
+  $('#searchWrapper').animate({'opacity': 1,'margin-top': '18rem'}, 500);
 
   $(window).on('scroll', function() {
     var scrollTop = $(window).scrollTop();
     if (scrollTop > 0) {
-      $('#jumbotron')
-        .stop()
-        .animate({ height: '4rem' }, 10);
-      $('#logoBig')
-        .stop()
-        .fadeOut(25);
+      // var $imgURL = $('#logoBig').attr("href");
+    $('#logoBig')
+        .fadeOut(400, function() {
+            $('#logoBig').attr('src',"./Assets/logo-icon.jpg").attr('class', 'iz-s')}).stop().fadeIn(400);
 
-      $('#jumbotron').html(
-        `<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`
-      );
-      $('#logoSmall').fadeIn(25);
-    } else {
-      $('#jumbotron')
-        .stop()
-        .animate({ height: '18rem' }, 10);
-      $('#logoSmall')
-        .stop()
-        .fadeOut(25);
 
-      $('#jumbotron').html(
-        `<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`
-      );
-      $('#logoBig').fadeIn(25);
+      // $('#logoBig').fadeOut(2500);
+
+      $('#jumbotron').stop().animate({height:'4rem'}, 1000);
+
+    
+      // $('#jumbotron').html(`<img id="logoSmall" class="iz-s" src="./Assets/logo-icon.jpg" alt="Spotlight Icon">`);
+
+
+
+      $('#logoSmall').fadeIn(2500);
+
+    } else if (scrollTop == 0) {
+
+      $('#logoSmall').fadeOut(2500);
+
+      $('#jumbotron').html(`<img id="logoBig" class="iz-l" src="./Assets/updated-logo.jpg" alt="Spotlight Logo">`);
+      
+      $('#jumbotron').stop().animate({height:'18rem'}, 1000);
+
+      $('#logoBig').fadeIn(2500);
     }
   });
+  
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
   let toggleLookup = true; // true is US, off is UK?
@@ -280,7 +284,7 @@ $(document).ready(function() {
     let tempName = locationObject.siteName;
     let tempURL = locationObject.url;
     let wrapper = `<a href="${tempURL}" class="iz-i m-s">
-      <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="h-f w-f s">
+      <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
     </a>`;
     return wrapper;
   }
