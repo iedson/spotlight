@@ -306,7 +306,12 @@ It is not always needed.
     let userSearch = $('#searchBox').val();
     let toggleSetting = $('#toggle').val();
     // DEBUGGGGG toggle setting
-    toggleSetting = true; // DEBUG
+    if ($('#countryToggle').attr('data-country')==='us'){
+      toggleSetting = false;
+    }
+    else{
+      toggleSetting = true;
+    }
     makeCall(userSearch, toggleSetting);
   });
 
@@ -319,6 +324,5 @@ It is not always needed.
     }else{
       $('#countryToggle').attr('data-country', 'us');
     }
-    console.log(test);
   })
 });
