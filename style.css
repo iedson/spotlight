@@ -96,6 +96,9 @@
 .br-tr{border-top-right-radius: 15px;}
 .br-br{border-bottom-right-radius: 15px;}
 
+/* z-index */
+.zi-3{z-index:3;}
+
 
 .s-hv:hover{box-shadow: 2.5px 2.5px 5px black;-webkit-box-shadow: 2.5px 2.5px 5px black;-moz-box-shadow: 2.5px 2.5px 5px black;}
 .e-g-hv:hover {transform: scale(1.05);-webkit-transform: scale(1.05);-moz-transform: scale(1.05);}
