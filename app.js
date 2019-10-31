@@ -32,7 +32,7 @@ It is not always needed.
     } else {
       $('#jumbotron').stop().animate({ height: '4rem'},500);
       $('#logo').stop(true,true).animate({opacity:'hide'},1000);
-      $('#logo').attr('src',"./Assets/logo-icon.jpg").attr('class','iz-s');
+      $('#logo').attr('src',"./Assets/small-logo.jpg").attr('class','iz-s');
       $('#logo').stop(true,true).animate({opacity:'show'},1000);
     }
   });
