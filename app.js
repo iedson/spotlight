@@ -285,9 +285,18 @@ It is not always needed.
     let tempIcon = locationObject.siteIcon;
     let tempName = locationObject.siteName;
     let tempURL = locationObject.url;
-    let wrapper = `<a href="${tempURL}" class="iz-i m-s">
-      <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
-    </a>`;
+    let wrapper = "";
+    if (tempURL === null) {
+      // DISPLAY NONE
+      wrapper = `<a href="${tempURL}" class="iz-i m-s d-n">
+        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv d-n">
+      </a>`;
+    }
+    else {
+      wrapper = `<a href="${tempURL}" class="iz-i m-s">
+        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
+      </a>`;
+    }
     return wrapper;
   }
 

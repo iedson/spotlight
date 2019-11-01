@@ -11,6 +11,7 @@
 .df{display:flex;}
 .df-fdc{flex-direction:column;}
 .df-fdr{flex-direction:row; flex-wrap:wrap; }
+.d-n{display:none;}
 /* images */
 .i-c{max-width: 75%; max-height: auto;}
 .iz-s{max-width:auto; height:4rem;}
