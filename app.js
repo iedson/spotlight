@@ -39,8 +39,8 @@ $(window).on('scroll', function() {
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
   let toggleLookup = true; // true is US, off is UK?
-  let DEBUG = true;
-  DEBUG = confirm('Debug mode?');
+  let DEBUG = false;
+  // DEBUG = confirm('Debug mode?');
   let settings = {
     async: true,
     crossDomain: true,
