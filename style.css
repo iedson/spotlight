@@ -85,9 +85,8 @@
 .c-w{color: white;}
 .c-ws{color: whitesmoke;}
 .c-cg{color:#464646;}
-.c-u{color:#FF9E50;}
 .c-u-hv:hover{color:#9e6100;}
-.c-g{color: #c29a58;}
+.c-g{color: #b98445;}
 .c-gk{color:#e7d489;}
 .c-gp{color:#c29a58;}
 
@@ -143,7 +142,7 @@
     font-weight: bold;
     text-indent: -22px;
     word-spacing: 37px;
-    color: #D3D3D3 ;
+    color: black ;
     text-shadow: -1px -1px rgba(0,0,0,0.15);
     white-space: nowrap;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
