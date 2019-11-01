@@ -20,22 +20,21 @@ It also prevented the shrinking header animation from not firing upon intial scr
 It is not always needed.
 */
 
-  $(window).on('scroll', function() { 
-    $('#logo').css('opacity', 'hide');
-    var scrollTop = $(window).scrollTop();
-
-    if (scrollTop <= 0) {
-      $('#jumbotron').stop().animate({height:'18rem'},500);
-      $('#logo').stop(true,true).animate({opacity:'hide'},1000);
-      $('#logo').attr('src',"./Assets/updated-logo.jpg").attr('class','iz-l');
-      $('#logo').stop(true,true).animate({opacity:'show'},1000);
-    } else {
-      $('#jumbotron').stop().animate({ height: '4rem'},500);
-      $('#logo').stop(true,true).animate({opacity:'hide'},1000);
+$(window).on('scroll', function() {
+  $('#logo').css('opacity', 'hide');
+  var scrollTop = $(window).scrollTop();
+  if (scrollTop <= 0) {
+    $('#jumbotron').stop().animate({height:'18rem'},1000);
+    $('#logo').animate({opacity:'hide'},500, function(){
+    $('#logo').attr('src',"./Assets/updated-logo.jpg").attr('class','iz-l');
+    $('#logo').animate({opacity:'show'},1000);
+  })} else {
+    $('#jumbotron').stop().animate({ height: '4rem'},1000);
+    $('#logo').animate({opacity:'hide'},500, function(){
       $('#logo').attr('src',"./Assets/small-logo.jpg").attr('class','iz-s');
-      $('#logo').stop(true,true).animate({opacity:'show'},1000);
-    }
-  });
+      $('#logo').animate({opacity:'show'},1000);
+    })}
+});
   
   /* // API Call Don't make functional until within an onclick function, otherwise will make an API call every page refresh */
   let userLookup = '';
@@ -84,7 +83,7 @@ It is not always needed.
       <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b mb-s">
        <div class="ff-m fz-l" id="title${i}">${showName}</div>
         <div class="ff-m fs-i c-cg fz-m">Watch On:</div>
-      <div id="iconsWrapper${i}" class="bgc-g df df-fdr ai-c ji-c ac-fs">`;
+      <div id="iconsWrapper${i}" class="bgc-g df df-fdr df-fr ai-c ji-c ac-fs">`;
     $('#pageWrapper').append(cardWrapper);
 
     // create and append <a><img></a> for each available streaming site
