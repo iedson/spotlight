@@ -284,9 +284,18 @@ $(window).on('scroll', function() {
     let tempIcon = locationObject.siteIcon;
     let tempName = locationObject.siteName;
     let tempURL = locationObject.url;
-    let wrapper = `<a href="${tempURL}" class="iz-i m-s">
-      <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
-    </a>`;
+    let wrapper = "";
+    if (tempURL === null) {
+      // DISPLAY NONE
+      wrapper = `<a href="${tempURL}" class="iz-i m-s d-n">
+        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv d-n">
+      </a>`;
+    }
+    else {
+      wrapper = `<a href="${tempURL}" class="iz-i m-s">
+        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
+      </a>`;
+    }
     return wrapper;
   }
 
@@ -305,7 +314,12 @@ $(window).on('scroll', function() {
     let userSearch = $('#searchBox').val();
     let toggleSetting = $('#toggle').val();
     // DEBUGGGGG toggle setting
-    toggleSetting = true; // DEBUG
+    if ($('#countryToggle').attr('data-country')==='us'){
+      toggleSetting = false;
+    }
+    else{
+      toggleSetting = true;
+    }
     makeCall(userSearch, toggleSetting);
   });
 
@@ -318,6 +332,5 @@ $(window).on('scroll', function() {
     }else{
       $('#countryToggle').attr('data-country', 'us');
     }
-    console.log(test);
   })
 });
