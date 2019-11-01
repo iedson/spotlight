@@ -1,38 +1,24 @@
 $(document).ready(function() {
 
   // animates the search wrapper including the toggle, bar, and button into DOM via a fade-in-from bottom type animation.
-  $('#searchWrapper').animate({'opacity': 1,'margin-top': '18rem'}, 500);
-  
-/*Lines 23-38: function for animating the header.
-
-As an else condition - upon scrolling form the top, the header bar will first animate to a height of 4rem.
-Secondly, it will hide the large logo image, change some attrubutes, and set a new src, all while hidden.
-Lastly, it reshows itself inside the header as the new image and smaller. 
-
-The header rebuilds itself to inital state when the user returns to the top of the page, the "if" part of the function.
-I chose <=0 because scrollTop documentation indicates there are hidden (read: negative) pixels to help determine if the bar is indeed at the top. 
-It also prevented the shrinking header animation from not firing upon intial scroll.
-
-// **.stop(true,true).animate() will mean that you’re telling jQuery to:
-// 1. Clear any queued animation. Let the current animation be the last of the stack.
-// 2. Drop whatever you are doing, and transition immediately to the end state.
-
-It is not always needed.
-*/
+  $('#greetingWrapper').animate({'opacity': 1}, 500);
+  $('#searchWrapper').delay(250).animate({'opacity': 1}, 500);
+  $('#infoWrapper').delay(1000).animate({'opacity': 1}, 500);
+  $('#footer').delay(1000).animate({'opacity': 1}, 500);
 
 $(window).on('scroll', function() {
   $('#logo').css('opacity', 'hide');
   var scrollTop = $(window).scrollTop();
   if (scrollTop <= 0) {
-    $('#jumbotron').stop().animate({height:'18rem'},1000);
-    $('#logo').animate({opacity:'hide'},500, function(){
+    $('#jumbotron').stop().animate({height:'18rem'},500);
+    $('#logo').animate({opacity:'hide'},250, function(){
     $('#logo').attr('src',"./Assets/updated-logo.jpg").attr('class','iz-l');
-    $('#logo').animate({opacity:'show'},1000);
+    $('#logo').animate({opacity:'show'},500);
   })} else {
-    $('#jumbotron').stop().animate({ height: '4rem'},1000);
-    $('#logo').animate({opacity:'hide'},500, function(){
+    $('#jumbotron').stop().animate({ height: '4rem'},500);
+    $('#logo').animate({opacity:'hide'},250, function(){
       $('#logo').attr('src',"./Assets/small-logo.jpg").attr('class','iz-s');
-      $('#logo').animate({opacity:'show'},1000);
+      $('#logo').animate({opacity:'show'},500);
     })}
 });
   
@@ -40,7 +26,7 @@ $(window).on('scroll', function() {
   let userLookup = '';
   let toggleLookup = true; // true is US, off is UK?
   let DEBUG = false;
-  // DEBUG = confirm('Debug mode?');
+   //DEBUG = confirm('Debug mode?');
   let settings = {
     async: true,
     crossDomain: true,
@@ -55,6 +41,10 @@ $(window).on('scroll', function() {
 
   /* Renders 1 card wrapper.  All fields are empty */
   function renderWrapper(i, singleShowResult) {
+      
+    $('#pageWrapper').animate({'opacity': 0}, 1000);
+    $('#greetingWrapper').animate({'opacity': 0}, 500);
+
     // var j = 0;
 
     // FOR YOUR VISUALIZATION ENJOYMENT:
@@ -78,13 +68,17 @@ $(window).on('scroll', function() {
 
     // Writes a div with children full of data to the DOM as a child of $('#pageWrapper') for each result
     let cardWrapper = 
-    `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c">
+    `<div id="cardWrapper${i}" class="df df-fdc ai-c jc-c mb-s">
       <img id="cardImage${i}" class="br-t i-c" src="${pictureUrl}">
-      <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b mb-s">
-       <div class="ff-m fz-l" id="title${i}">${showName}</div>
-        <div class="ff-m fs-i c-cg fz-m">Watch On:</div>
+      <div id="contentWrapper${i}" class="bgc-g p-s w-75 br-b ">
+       <div class="ff-m fz-h" id="title${i}">${showName}</div>
+        <div class="ff-m fs-i c-cg fz-h">Watch On:</div>
       <div id="iconsWrapper${i}" class="bgc-g df df-fdr df-fr ai-c ji-c ac-fs">`;
     $('#pageWrapper').append(cardWrapper);
+    $('#searchWrapper').stop().animate({'margin-top':'19rem'}, 500)
+
+    
+    
 
     // create and append <a><img></a> for each available streaming site
     for (var k = 0; k < locationArray.length; k++) {
@@ -117,8 +111,12 @@ $(window).on('scroll', function() {
       }
       var wrap = $('#' + junkID);
       wrap.append(createIconWrapper(k, locationArray[k]));
-      $('#greetingWrapper').animate({'opacity': 0,'margin-top': '1rem'}, 500);
-      $('#pageWrapper').animate({'opacity': 1,'margin-top': '0'}, 500);
+      $('#greetingWrapper').animate({'opacity': 0,}, 1000);
+      $("#greetingWrapper").attr("style", "display:none");
+
+      $('#infoWrapper').animate({'opacity': 0,}, 1000);
+      $("#infoWrapper").attr("style", "display:none");
+      $('#pageWrapper').stop().animate({'opacity': 1}, 1000);
 
     }
   }
@@ -293,7 +291,7 @@ $(window).on('scroll', function() {
     }
     else {
       wrapper = `<a href="${tempURL}" class="iz-i m-s">
-        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f s-hv">
+        <img src="${tempIcon}" alt="${tempName}" title="${tempName}" class="br bd-g e-g-hv h-f w-f p-s s-hv">
       </a>`;
     }
     return wrapper;
