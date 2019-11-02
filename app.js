@@ -152,7 +152,7 @@ $(window).on('scroll', function() {
     clearResults();
     // update the API call's url with the user's search info
     settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=${toggleLookup}`;
-    DEBUG = true;
+    // DEBUG = true;
     // make the API call using the settings which now include the user's search
     if (DEBUG === true) {
       // use fake API call object
