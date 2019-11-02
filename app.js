@@ -152,6 +152,7 @@ $(window).on('scroll', function() {
     clearResults();
     // update the API call's url with the user's search info
     settings.url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${userLookup}&country=${toggleLookup}`;
+    DEBUG = true;
     // make the API call using the settings which now include the user's search
     if (DEBUG === true) {
       // use fake API call object
@@ -206,7 +207,7 @@ $(window).on('scroll', function() {
                 'https://assets.pcmag.com/media/images/434952-netflix-logo.png?width=333&height=245'
             },
             {
-              display_name: 'Amazon Poop',
+              display_name: 'Amazon Pop',
               name: 'AmazonUS',
               url:
                 'http://www.amazon.com/gp/product/B0773R8MCP?tag=utellycom00-21',
@@ -216,10 +217,10 @@ $(window).on('scroll', function() {
             }
           ],
           picture:
-            'https://utellyassets2-9.imgix.net/2/Open/NBC_6/Program/27734620/_16by9/The_Good_Place_S4_KA2.jpg?fit=crop&auto=compress&crop=faces,top',
+            'https://images-na.ssl-images-amazon.com/images/I/81FIbmh-EXL._RI_.jpg',
           id: '592a6051ebb7f91ca2569dd7',
           weight: 768,
-          name: 'The Good Place'
+          name: 'The Good Doctor'
         }
       ],
       updated: '2019-10-24T03:03:20+0100',
