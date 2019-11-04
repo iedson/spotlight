@@ -16,7 +16,7 @@
 .df-fr{flex-wrap:wrap;}
 
 /* images */
-.i-c{max-width: 75%; max-height: auto;}
+.i-c{width: 75%; max-height: auto;}
 .iz-s{max-width:auto; height:4rem;}
 .iz-l{max-width:auto; height:18rem;}
 .iz-i{max-width: 9rem; max-height: 6rem;}
@@ -31,31 +31,38 @@
 .m-l{margin: 10%;}
 .m-m{margin: 6%;} 
 .m-s{margin: 3%;}
-.mb-s{margin-bottom:2rem}
-.mt-s{margin-top:250px;}
-.mt-m{margin-top:18rem;}
+.mb-s{margin-bottom:3%;}
+.mt-s{margin-top:3%;}
+.mt-m{margin-top:5%;}
+.mt-l{margin-top:18rem;}
 /* padding */
 .pd-t{padding:12rem;}
 .pd-st{padding-top:1%;}
 .pd-sl{padding-left:2%;}
 .pd-rs{padding-right:2%;}
 .p-s{padding: 3%;} 
+.p-m{padding: 5%;}
 /* positioning */
 .ps-t{top:0;}
+.ps-b{position:bottom;}
 .ps-f{position:fixed}
 /* font and text properties */
-.fz-j{font-size: 10rem;}
-.fz-l{font-size: 3rem;}
-.fz-m{font-size: 2rem;}
-.fz-s{font-size: 1rem;}
-.fz-xs{font-size: .5rem;}
+.fz-j{font-size: 170%;}
+.fz-l{font-size: 150%;}
+.fz-m{font-size: 120%;}
+.fz-s{font-size: 100%;}
+.fz-xs{font-size: 40%;}
 .fz-h{font-size: calc(1em + 0.5vh + 2.5vw);} /* guarantees 1em size minimum, but scales based on 0.5% of the view height and 2.5% of the view width */
 .fz-g{font-size: calc(0.25em + 0.125vh + 0.625vw);}
 .ff-m{font-family:'Martel Sans', sans-serif;}
-.fs-i{font-style:italic}
+.fs-i{font-style:italic;}
+.fs-n{font-style:normal;}
 .ta-c{text-align:center;}
 .td-n{text-decoration:none;}
 .fw-b{font-weight: bold;}
+.va-b{vertical-align: top;}
+
+
 /* height and width */
 .h-f{height:100%;}
 .mnh-f{min-height:100%;}
@@ -68,9 +75,9 @@
 
 /* window */
 .bx {min-height: calc(20rem + 30vh); min-width: 100vw; /* guarantees a large relative size, then scales with 30% of the view height */}
-.fd-i{opacity:0; margin-top:18rem;}
-.fd-o{opacity:1; margin-top:0;}
-.btn:focus, input:focus {outline: none;}
+.fd-i{opacity:0;}
+.fd-o{opacity:1;}
+button:focus, input:focus {outline: none;}
 
 /* Marketable style */
 
